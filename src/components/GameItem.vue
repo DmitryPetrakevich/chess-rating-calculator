@@ -2,28 +2,41 @@
     <div class="game-item">
         <div class="game-item__container">
             <p class="game-item-number">
-                0
+                {{ number }}
             </p>
 
-            <input class="game-item-rating">
-            
-            </input>
+            <input 
+            class="game-item-rating"
+            type="number"
+            v-model="rating"
+            />
 
-            <select class="game-item-result">
-                <option class="game-item-result-option">Победа</option>
-                <option class="game-item-result-option">Поражение</option>
-                <option class="game-item-result-option">Ничья</option>
+            <select class="game-item-result" v-model="result">
+                <option value="1" class="game-item-result-option" >Победа</option>
+                <option value="-1" class="game-item-result-option">Поражение</option>
+                <option value="0" class="game-item-result-option">Ничья</option>
             </select>
 
             <p class="game-item-change">
-                0
+                {{ change }}
             </p>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
+const props = defineProps({
+    number: Number,
+    rating: Number,
+    result: Number,
+    change: Number,
+});
+
+let rating = ref(props.rating);
+let result = ref(props.result);
+let change = ref(props.change);
 </script>
 
 <style scoped lang="less">
@@ -60,20 +73,21 @@
 }
 
 .game-item-result {
-    margin-right: 10px;
+    // margin-right: 100px;
     width: 100%;
     max-width: 100%;
     min-width: 100px;
     height: 30px;
 
     &-option {
-        font-size: 15px;
+        font-size: 18px;
     }
 }
 
 .game-item-change {
     font-size: 23px;
-    margin: 0 20px;
+    margin-right: 60px;
+    margin-left: 60px;
 }
 
 </style>

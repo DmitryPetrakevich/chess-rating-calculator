@@ -49,7 +49,6 @@ let infoText = computed(() => {
     if (num < 2400) return '20 (2200-2399)'
     if (num >= 2400) return '10 (>2400)'
 })
-
 </script>
 
 <style scoped lang="less">
@@ -97,8 +96,5 @@ let infoText = computed(() => {
 .rating-settings-coefficient-input {
     width: 100%;
     height: 30px;
-
-
 }
-
 </style>

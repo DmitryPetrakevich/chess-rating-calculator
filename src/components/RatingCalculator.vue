@@ -2,7 +2,8 @@
     <div class="rating-calculator">
         <div class="rating-calculator__container">
             <RatingSettings />
-            <GameItem />
+            <GameList />
+
         </div>
     </div>
   
@@ -12,6 +13,7 @@
 
 import RatingSettings from './RatingSettings.vue';
 import GameItem from './GameItem.vue';
+import GameList from './GameList.vue';
 
 </script>
 
@@ -26,7 +28,8 @@ import GameItem from './GameItem.vue';
         // align-items: center;
         gap: 30px;
         max-width: 800px;
-        height: 600px;
+        min-height: 600px;
+        height: auto;
         padding: 20px;
         margin: 0 auto;
         border: 1px solid black;
