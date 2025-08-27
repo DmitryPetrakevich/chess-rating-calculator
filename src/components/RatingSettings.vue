@@ -13,8 +13,8 @@
                 <input
                 type="number"
                 v-model.number="rating" 
-                class="rating-settings-start-input">
-                </input>
+                class="rating-settings-start-input"
+                />
             </div>
 
             <div class="rating-settings-coefficient">
@@ -25,9 +25,7 @@
                 :placeholder="infoText"
                 class="rating-settings-coefficient-input"
                 disabled
-                >
-                
-                </input>
+                />
             </div>
         </div>
     </div>
@@ -41,6 +39,7 @@ let rating = ref(0)
 let infoText = computed(() => {
     const num = Number(rating.value)
 
+    if (num == 0) return "Введите начальный рейтинг"
     if (num < 1200) return '60 (1000-1199)'
     if (num < 1400) return '50 (1200-1399)'
     if (num < 1600) return '40 (1400-1599)'
