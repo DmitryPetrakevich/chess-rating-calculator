@@ -26,7 +26,7 @@
                             Ваш перформанс:
                         </p>
                         <div class="result-summary-main-performance-number">
-                            1000
+                            {{performance}}
                         </div>
                     </div>
                     <hr class="divider"/> 
@@ -52,8 +52,21 @@ import { ref, computed } from 'vue';
 const store = useChessStore();
 
 let average = computed(() => {
+    if (!store.games || store.games.length === 0) return 0;
     let sum = store.games.reduce((a,c) => a + c.rating,0)
     return Math.floor(sum / store.games.length)
+})
+
+let performance = computed(() => {
+    if(!store.games || store.games.length === 0) return 0;
+
+    let wins = store.games.filter(game => game.result == 1).length;
+    let draws = store.games.filter(game => game.result == 0).length;
+    let totalGames = store.games.length;
+
+    const totalPoints = wins + draws * 0.5;
+
+    return Math.round(average.value + 400 * (2 * totalPoints - totalGames) / totalGames);
 })
 
 </script>

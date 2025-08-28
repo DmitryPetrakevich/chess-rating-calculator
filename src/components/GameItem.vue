@@ -40,8 +40,6 @@ let circleClass = computed(() => {
         default: return "";
     }
 })
-
-
 </script>
 
 <style scoped lang="less">
@@ -90,7 +88,6 @@ let circleClass = computed(() => {
 }
 
 .game-item-result {
-    // margin-right: 100px;
     width: 100%;
     max-width: 100%;
     min-width: 100px;
