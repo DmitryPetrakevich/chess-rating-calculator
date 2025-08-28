@@ -3,6 +3,7 @@
         <div class="rating-calculator__container">
             <RatingSettings />
             <GameList />
+            <ResultSummary />
 
         </div>
     </div>
@@ -14,6 +15,7 @@
 import RatingSettings from './RatingSettings.vue';
 import GameItem from './GameItem.vue';
 import GameList from './GameList.vue';
+import ResultSummary from './ResultSummary.vue';
 
 </script>
 

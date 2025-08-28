@@ -24,9 +24,7 @@
                 v-for="(game,index) in store.games"
                 :key="game.id"
                 :number="index + 1"
-                :rating="game.rating"
-                :result="game.result"
-                :change="game.change"
+                :game="game"
                 />
             </div>
 
@@ -64,6 +62,7 @@ let store = useChessStore();
     justify-content: space-between;
     gap: 20px;
     padding: 0 30px;
+    margin-bottom: 20px;
     font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
@@ -78,6 +77,12 @@ let store = useChessStore();
 }
 
 .game-list-header-result {
+}
+
+.game-list-games {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .game-list-games-btns {

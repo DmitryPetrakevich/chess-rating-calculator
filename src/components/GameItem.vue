@@ -1,42 +1,47 @@
 <template>
     <div class="game-item">
         <div class="game-item__container">
-            <p class="game-item-number">
+            <p class="game-item-number" :class="circleClass">
                 {{ number }}
             </p>
 
             <input 
             class="game-item-rating"
             type="number"
-            v-model="rating"
+            v-model="game.rating"
             />
 
-            <select class="game-item-result" v-model="result">
+            <select class="game-item-result" v-model="game.result">
                 <option value="1" class="game-item-result-option" >Победа</option>
                 <option value="-1" class="game-item-result-option">Поражение</option>
                 <option value="0" class="game-item-result-option">Ничья</option>
             </select>
 
             <p class="game-item-change">
-                {{ change }}
+                {{ game.change }}
             </p>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 const props = defineProps({
     number: Number,
-    rating: Number,
-    result: Number,
-    change: Number,
+    game: Object,
 });
 
-let rating = ref(props.rating);
-let result = ref(props.result);
-let change = ref(props.change);
+let circleClass = computed(() => {
+    switch(props.game.result) {
+        case "1": return "win";
+        case "-1": return 'lose';
+        case "0": return 'draw';
+        default: return "";
+    }
+})
+
+
 </script>
 
 <style scoped lang="less">
@@ -56,12 +61,24 @@ let change = ref(props.change);
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 40px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 23px;
     border-radius: 50%;
     background-color: lightgreen;
     flex-shrink: 0;
+
+    &.win {
+        background-color: lightgreen;
+    }
+
+    &.lose {
+        background-color: red;
+    }
+    
+    &.draw {
+        background-color: yellow;
+    }
 }
 
 .game-item-rating {
