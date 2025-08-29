@@ -18,7 +18,7 @@
             </select>
 
             <p class="game-item-change">
-                {{ game.change }}
+                {{ change }}
             </p>
         </div>
     </div>
@@ -26,6 +26,9 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import { useChessStore } from '../stores/chessStore';
+
+let store = useChessStore();
 
 const props = defineProps({
     number: Number,
@@ -40,6 +43,14 @@ let circleClass = computed(() => {
         default: return "";
     }
 })
+
+const change = computed(() => {
+    const result = Number(props.game.result);
+    const E = 1 / (1 + Math.pow(10, ((props.game.rating - store.settings.initialRating) / 400)));
+    const ratingChange = store.settings.kFactor * (result - E);
+    return ratingChange.toFixed(1);
+})
+
 </script>
 
 <style scoped lang="less">

@@ -12,8 +12,9 @@
                 </label>
                 <input
                 type="number"
-                v-model.number="rating" 
                 class="rating-settings-start-input"
+                :value="store.settings.initialRating" 
+                @input="store.updateInitialRating($event.target.value)"
                 />
             </div>
 
@@ -23,6 +24,7 @@
                 </label>
                 <input 
                 :placeholder="infoText"
+                :value="store.settings.kFactor"
                 class="rating-settings-coefficient-input"
                 disabled
                 />
@@ -33,11 +35,12 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useChessStore } from '../stores/chessStore';
 
-let rating = ref(0)
+let store = useChessStore()
 
 let infoText = computed(() => {
-    const num = Number(rating.value)
+    const num = Number(store.settings.initialRating)
 
     if (num == 0) return "Введите начальный рейтинг"
     if (num < 1200) return '60 (1000-1199)'
@@ -48,7 +51,23 @@ let infoText = computed(() => {
     if (num < 2200) return '25 (2000-2199)'
     if (num < 2400) return '20 (2200-2399)'
     if (num >= 2400) return '10 (>2400)'
-})
+
+    updateKFactorBasedOnRating(num);
+});
+
+function updateKFactorBasedOnRating(rating) {
+    let kFactor;
+    if (rating < 1200) kFactor = 60;
+    else if (rating < 1400) kFactor = 50;
+    else if (rating < 1600) kFactor = 40;
+    else if (rating < 1800) kFactor = 35;
+    else if (rating < 2000) kFactor = 30;
+    else if (rating < 2200) kFactor = 25;
+    else if (rating < 2400) kFactor = 20;
+    else kFactor = 10;
+    
+    store.updateKFactor(kFactor);
+}
 </script>
 
 <style scoped lang="less">

@@ -3,6 +3,10 @@ import { defineStore } from "pinia";
 export const useChessStore = defineStore("chess", {
   state: () => ({
     games: [],
+    settings: {
+      initialRating: 1000,
+      kFactor: 20,
+    }
   }),
   actions: {
     addGame() {
@@ -18,6 +22,14 @@ export const useChessStore = defineStore("chess", {
       if(this.games.length > 1) {
         this.games.pop();
       }
+    },
+
+    updateInitialRating(rating) {
+      this.settings.initialRating = rating;
+    },
+
+    updateKFactor(factor) {
+      this.settings.kFactor = factor;
     }
   },
 });
