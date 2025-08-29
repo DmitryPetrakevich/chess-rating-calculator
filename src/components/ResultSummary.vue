@@ -63,12 +63,10 @@ let performance = computed(() => {
     let wins = store.games.filter(game => game.result == 1).length;
     let draws = store.games.filter(game => game.result == 0).length;
     let totalGames = store.games.length;
-
     const totalPoints = wins + draws * 0.5;
 
     return Math.round(average.value + 400 * (2 * totalPoints - totalGames) / totalGames);
 })
-
 </script>
 
 <style scoped lang="less">
@@ -88,8 +86,8 @@ let performance = computed(() => {
     padding: 15px 30px;
     margin-bottom: 20px;
     width: 100%;
-    background-color: rgb(94, 126, 213);
-    border: 1px solid grey;
+    background-color: #2C3E50;
+    border: 1px solid #1A2530;
     border-radius: 5px;
     text-transform: uppercase;
     color: white;
@@ -99,7 +97,9 @@ let performance = computed(() => {
 .result-summary-table {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid rgb(33, 3, 114);
+    border-radius: 5px;
+    
 }
 
 .result-summary-title {
@@ -122,11 +122,13 @@ let performance = computed(() => {
     align-items: center;
 
     &-text {
-        font-size: 20px;
+        font-size: 23px;
+        color: rgb(6, 6, 100);
     }
 
     &-number {
-        font-size: 25px;
+        font-size: 23px;
+        color: rgb(6, 6, 100);
     }
 }
 
@@ -137,11 +139,13 @@ let performance = computed(() => {
     align-items: center;
 
     &-text {
-        font-size: 20px;
+        font-size: 23px;
+        color: rgb(6, 6, 100);
     }
 
     &-number {
-        font-size: 25px;
+        font-size: 23px;
+        color: rgb(6, 6, 100);
     }
 }
 
@@ -153,11 +157,13 @@ let performance = computed(() => {
     padding-bottom: 30px;
 
     &-text {
-        font-size: 20px;
+        font-size: 23px;
+        color: rgb(6, 6, 100);
     }
 
     &-number {
-        font-size: 25px;
+        font-size: 23px;
+        color: rgb(6, 6, 100);
     }
 }
 

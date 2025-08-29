@@ -24,7 +24,6 @@
                 </label>
                 <input 
                 :placeholder="infoText"
-                :value="store.settings.kFactor"
                 class="rating-settings-coefficient-input"
                 disabled
                 />
@@ -34,10 +33,14 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useChessStore } from '../stores/chessStore';
 
 let store = useChessStore()
+
+watch(() => store.settings.initialRating, (newRating) => {
+    updateKFactorBasedOnRating(Number(newRating));
+})
 
 let infoText = computed(() => {
     const num = Number(store.settings.initialRating)
@@ -57,7 +60,8 @@ let infoText = computed(() => {
 
 function updateKFactorBasedOnRating(rating) {
     let kFactor;
-    if (rating < 1200) kFactor = 60;
+    if(rating === 0) kFactor = 20;
+    else if (rating < 1200) kFactor = 60;
     else if (rating < 1400) kFactor = 50;
     else if (rating < 1600) kFactor = 40;
     else if (rating < 1800) kFactor = 35;
@@ -68,6 +72,9 @@ function updateKFactorBasedOnRating(rating) {
     
     store.updateKFactor(kFactor);
 }
+
+// Инициализируем при загрузке
+updateKFactorBasedOnRating(Number(store.settings.initialRating));
 </script>
 
 <style scoped lang="less">
@@ -96,11 +103,14 @@ function updateKFactorBasedOnRating(rating) {
 
 .rating-settings-start-label {
     padding-bottom: 10px;
+    color: #7F8C8D;
 }
 
 .rating-settings-start-input {
     width: 100%;
     height: 30px;
+    color: #2C3E50;
+    border: 1px solid #BDC3C7;
 }
 
 .rating-settings-coefficient {
@@ -111,9 +121,13 @@ function updateKFactorBasedOnRating(rating) {
 
 .rating-settings-coefficient-label {
     padding-bottom: 10px;
+    color: #7F8C8D;
 }
 .rating-settings-coefficient-input {
     width: 100%;
     height: 30px;
+    background-color: #F8F9F9;
+    color: #95A5A6;
+    border: 1px solid #BDC3C7;
 }
 </style>

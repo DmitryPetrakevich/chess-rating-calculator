@@ -1,16 +1,28 @@
 <template>
-  <PageHeader />
+  <div class="app">
+    <PageHeader />
   
-  <RatingCalculator />
-  
+   <RatingCalculator />
+  </div>
 </template>
 
 <script setup>
 import PageHeader from './components/PageHeader.vue';
 import RatingCalculator from './components/RatingCalculator.vue';
 
-
 </script>
 
-<style scoped>
+<style lang="less">
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(235, 235, 235);
+}
+
+.app {
+  min-height: 100vh;
+  background-color: rgb(235, 235, 235);
+}
 </style>

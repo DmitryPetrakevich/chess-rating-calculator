@@ -22,6 +22,7 @@ import ResultSummary from './ResultSummary.vue';
 <style scoped lang="less">
 .rating-calculator {
     padding-top: 120px;
+    padding-bottom: 100px;
     
 
     &__container {
@@ -34,7 +35,9 @@ import ResultSummary from './ResultSummary.vue';
         height: auto;
         padding: 20px;
         margin: 0 auto;
-        border: 1px solid black;
+        border: 2px solid rgb(69, 97, 125);
+        border-radius: 5px;
+        background-color: #e9e9e9;
     }
 }
 </style>

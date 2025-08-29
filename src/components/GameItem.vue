@@ -17,7 +17,7 @@
                 <option value="0" class="game-item-result-option">Ничья</option>
             </select>
 
-            <p class="game-item-change">
+            <p class="game-item-change" :class="colorChange">
                 {{ change }}
             </p>
         </div>
@@ -42,13 +42,18 @@ let circleClass = computed(() => {
         case "0": return 'draw';
         default: return "";
     }
-})
+});
 
 const change = computed(() => {
     const result = Number(props.game.result);
     const E = 1 / (1 + Math.pow(10, ((props.game.rating - store.settings.initialRating) / 400)));
     const ratingChange = store.settings.kFactor * (result - E);
     return ratingChange.toFixed(1);
+});
+
+const colorChange = computed(() => {
+    if(change.value > 0) return "plus"
+    else if (change.value < 0) return "minus" 
 })
 
 </script>
@@ -59,7 +64,7 @@ const change = computed(() => {
     flex-direction: row;
     align-items: center;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid #6a8698;
     border-radius: 5px;
 }
 
@@ -113,6 +118,15 @@ const change = computed(() => {
     font-size: 23px;
     margin-right: 60px;
     margin-left: 60px;
+    font-weight: 800;
+
+    &.plus {
+        color: green;
+    }
+
+    &.minus {
+        color: red;
+    }
 }
 
 </style>

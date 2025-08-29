@@ -66,6 +66,8 @@ let store = useChessStore();
     font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
+    background-color: #ECF0F1;
+    color: #2C3E50;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -94,18 +96,18 @@ let store = useChessStore();
 .game-list-games-btn-add {
     display: flex;
     padding: 15px 30px;
-    background-color: rgb(38, 154, 38);
+    background-color: #27AE60;
     color: white;
-    border: 1px solid grey;
+    border: 1px solid #229954;
     font-size: 20px;
 }
 
 .game-list-games-btn-del {
     display: flex;
     padding: 15px 30px;
-    background-color: rgb(220, 33, 33);
+    background-color: #E74C3C;
     color: white;
-    border: 1px solid grey;
+    border: 1px solid #C0392B;
     font-size: 20px;
 }
 
