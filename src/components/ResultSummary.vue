@@ -16,7 +16,8 @@
                             Новый рейтинг:
                         </p>
                         <div class="result-summary-main-rating-number">
-                            1000
+                            <p class="newRating">{{newRating}}</p>
+                            <p class="totalChange">{{ totalChange }}</p>
                         </div>
                     </div>
                     <hr class="divider"/> 
@@ -66,6 +67,15 @@ let performance = computed(() => {
     const totalPoints = wins + draws * 0.5;
 
     return Math.round(average.value + 400 * (2 * totalPoints - totalGames) / totalGames);
+})
+
+const totalChange = computed(() => {
+    return store.totalChange;
+})
+
+const newRating = computed(() => {
+    return store.newRating
+
 })
 </script>
 
@@ -127,9 +137,19 @@ let performance = computed(() => {
     }
 
     &-number {
-        font-size: 23px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
         color: rgb(6, 6, 100);
     }
+}
+
+.newRating {
+    font-size: 36px;
+}
+
+.totalChange {
+    font-size: 28px;
 }
 
 .result-summary-main-performance {
