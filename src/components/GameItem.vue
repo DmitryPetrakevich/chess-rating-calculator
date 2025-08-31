@@ -45,10 +45,21 @@ let circleClass = computed(() => {
 });
 
 const change = computed(() => {
-    const result = Number(props.game.result);
-    const E = 1 / (1 + Math.pow(10, ((props.game.rating - store.settings.initialRating) / 400)));
-    const ratingChange = store.settings.kFactor * (result - E);
-    return ratingChange.toFixed(1);
+    const resultMap = {
+        "1": 1,    // победа
+        "0": 0.5,  // ничья
+        "-1": 0    // поражение
+    };
+
+    const result = resultMap[props.game.result] ?? 0;
+
+    const R_player = store.settings.initialRating;
+    const R_opponent = Number(props.game.rating);
+
+    const E = 1 / (1 + Math.pow(10, (R_opponent - R_player) / 400));
+     const ratingChange = store.settings.kFactor * (result - E);
+
+     return ratingChange.toFixed(1);
 });
 
 const colorChange = computed(() => {
