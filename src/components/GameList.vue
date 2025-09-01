@@ -1,48 +1,36 @@
 <template>
     <div class="game-list">
-        <div  class="game-list__container">
-            <div class="game-list-header">
-                <p class="game-list-header-number">
-                    #
-                </p>
-
-                <p class="game-list-header-rating">
-                    Рейтинг соперника
-                </p>
-
-                <p class="game-list-header-result">
-                    Результат
-                </p>
-
-                <p class="game-list-header-change">
-                    Изменение
-                </p>
+        <div class="game-list__container">
+            <div class="game-list__header">
+                <p class="game-list__number">#</p>
+                <p class="game-list__rating">Рейтинг соперника</p>
+                <p class="game-list__result">Результат</p>
+                <p class="game-list__change">Изменение</p>
             </div>
 
-            <div class="game-list-games">
+            <div class="game-list__games">
                 <GameItem 
-                v-for="(game,index) in store.games"
-                :key="game.id"
-                :number="index + 1"
-                :game="game"
+                    v-for="(game,index) in store.games"
+                    :key="game.id"
+                    :number="index + 1"
+                    :game="game"
                 />
             </div>
 
-            <div class="game-list-games-btns">
+            <div class="game-list__btns">
                 <button 
-                class="game-list-games-btn-add"
-                @click="store.addGame"
+                    class="game-list__btn game-list__btn--add"
+                    @click="store.addGame"
                 >
                     + Добавить игру
                 </button>
 
                 <button 
-                class="game-list-games-btn-del"
-                @click="store.deleteGame"
+                    class="game-list__btn game-list__btn--del"
+                    @click="store.deleteGame"
                 >
                     - Удалить игру
                 </button>
-
             </div>
         </div>
     </div>
@@ -53,11 +41,10 @@ import GameItem from './GameItem.vue';
 import { useChessStore } from '../stores/chessStore';
 
 let store = useChessStore();
-
 </script>
 
 <style scoped lang="less">
-.game-list-header {
+.game-list__header {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -72,43 +59,34 @@ let store = useChessStore();
     border-radius: 5px;
 }
 
-.game-list-header-number {
-}
-
-.game-list-header-rating {
-}
-
-.game-list-header-result {
-}
-
-.game-list-games {
+.game-list__games {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.game-list-games-btns {
+.game-list__btns {
     display: flex;
     gap: 20px;
     margin-top: 30px;
 }
 
-.game-list-games-btn-add {
+.game-list__btn {
     display: flex;
     padding: 15px 30px;
-    background-color: #27AE60;
-    color: white;
-    border: 1px solid #229954;
     font-size: 20px;
-}
-
-.game-list-games-btn-del {
-    display: flex;
-    padding: 15px 30px;
-    background-color: #E74C3C;
     color: white;
-    border: 1px solid #C0392B;
-    font-size: 20px;
-}
+    border: none;
+    border-radius: 4px;
 
+    &--add {
+        background-color: #27AE60;
+        border: 1px solid #229954;
+    }
+
+    &--del {
+        background-color: #E74C3C;
+        border: 1px solid #C0392B;
+    }
+}
 </style>

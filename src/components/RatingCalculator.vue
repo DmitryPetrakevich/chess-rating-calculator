@@ -13,7 +13,6 @@
 <script setup>
 
 import RatingSettings from './RatingSettings.vue';
-import GameItem from './GameItem.vue';
 import GameList from './GameList.vue';
 import ResultSummary from './ResultSummary.vue';
 
@@ -28,7 +27,6 @@ import ResultSummary from './ResultSummary.vue';
     &__container {
         display: flex;
         flex-direction: column;
-        // align-items: center;
         gap: 30px;
         max-width: 800px;
         min-height: 600px;

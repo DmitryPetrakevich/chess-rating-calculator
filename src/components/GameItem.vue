@@ -1,23 +1,23 @@
 <template>
-    <div class="game-item">
-        <div class="game-item__container">
-            <p class="game-item-number" :class="circleClass">
+    <div class="game">
+        <div class="game__container">
+            <p class="game__number" :class="circleClass">
                 {{ number }}
             </p>
 
             <input 
-            class="game-item-rating"
+            class="game__rating"
             type="number"
             v-model="game.rating"
             />
 
-            <select class="game-item-result" v-model="game.result">
-                <option value="1" class="game-item-result-option" >Победа</option>
-                <option value="-1" class="game-item-result-option">Поражение</option>
-                <option value="0" class="game-item-result-option">Ничья</option>
+            <select class="game__result" v-model="game.result">
+                <option value="1" class="game__option">Победа</option>
+                <option value="-1" class="game__option">Поражение</option>
+                <option value="0" class="game__option">Ничья</option>
             </select>
 
-            <p class="game-item-change" :class="colorChange">
+            <p class="game__change" :class="colorChange">
                 {{ change }}
             </p>
         </div>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useChessStore } from '../stores/chessStore';
 
 let store = useChessStore();
@@ -52,11 +52,10 @@ const colorChange = computed(() => {
     if(change.value > 0) return "plus"
     else if (change.value < 0) return "minus" 
 })
-
 </script>
 
 <style scoped lang="less">
-.game-item__container {
+.game__container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -65,7 +64,7 @@ const colorChange = computed(() => {
     border-radius: 5px;
 }
 
-.game-item-number{
+.game__number {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +91,7 @@ const colorChange = computed(() => {
     }
 }
 
-.game-item-rating {
+.game__rating {
     margin-right: 30px;
     width: 100%;
     max-width: 100%;
@@ -100,7 +99,7 @@ const colorChange = computed(() => {
     height: 30px;
 }
 
-.game-item-result {
+.game__result {
     width: 100%;
     max-width: 100%;
     min-width: 100px;
@@ -111,7 +110,7 @@ const colorChange = computed(() => {
     }
 }
 
-.game-item-change {
+.game__change {
     font-size: 23px;
     margin-right: 60px;
     margin-left: 60px;
@@ -125,5 +124,4 @@ const colorChange = computed(() => {
         color: red;
     }
 }
-
 </style>

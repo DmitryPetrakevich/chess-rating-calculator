@@ -1,31 +1,31 @@
 <template>
     <div class="rating-settings">
-        <select class="rating-settings-choice">
+        <select class="rating-settings__choice">
             <option>ФШР</option>
             <option>FIDE</option>
         </select>
 
-        <div class="rating-settings-inputs">
-            <div class="rating-settings-start">
-                <label class="rating-settings-start-label">
+        <div class="rating-settings__inputs">
+            <div class="rating-settings__start">
+                <label class="rating-settings__label">
                     Ваш рейтинг на начало турнира
                 </label>
                 <input
-                type="number"
-                class="rating-settings-start-input"
-                :value="store.settings.initialRating" 
-                @input="store.updateInitialRating($event.target.value)"
+                    type="number"
+                    class="rating-settings__input"
+                    :value="store.settings.initialRating" 
+                    @input="store.updateInitialRating($event.target.value)"
                 />
             </div>
 
-            <div class="rating-settings-coefficient">
-                <label class="rating-settings-coefficient-label"
-                >Коэффициент развития (K)
+            <div class="rating-settings__coefficient">
+                <label class="rating-settings__label">
+                    Коэффициент развития (K)
                 </label>
                 <input 
-                :placeholder="infoText"
-                class="rating-settings-coefficient-input"
-                disabled
+                    :placeholder="infoText"
+                    class="rating-settings__input rating-settings__input--disabled"
+                    disabled
                 />
             </div>
         </div>
@@ -80,54 +80,42 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
 <style scoped lang="less">
 .rating-settings {
     width: 100%;
-}
 
-.rating-settings-choice {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px 12px;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
+    &__choice {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 12px;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
 
-.rating-settings-inputs {
-    display: flex;
-    gap: 50px;
-}
+    &__inputs {
+        display: flex;
+        gap: 50px;
+    }
 
-.rating-settings-start {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-}
+    &__start,
+    &__coefficient {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
 
-.rating-settings-start-label {
-    padding-bottom: 10px;
-    color: #7F8C8D;
-}
+    &__label {
+        padding-bottom: 10px;
+        color: #7F8C8D;
+    }
 
-.rating-settings-start-input {
-    width: 100%;
-    height: 30px;
-    color: #2C3E50;
-    border: 1px solid #BDC3C7;
-}
+    &__input {
+        width: 100%;
+        height: 30px;
+        color: #2C3E50;
+        border: 1px solid #BDC3C7;
 
-.rating-settings-coefficient {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-}
-
-.rating-settings-coefficient-label {
-    padding-bottom: 10px;
-    color: #7F8C8D;
-}
-.rating-settings-coefficient-input {
-    width: 100%;
-    height: 30px;
-    background-color: #F8F9F9;
-    color: #95A5A6;
-    border: 1px solid #BDC3C7;
+        &--disabled {
+            background-color: #F8F9F9;
+            color: #95A5A6;
+        }
+    }
 }
 </style>
