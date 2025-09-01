@@ -1,10 +1,6 @@
 <template>
     <div class="result-summary">
         <div class="result-summary__container">
-            <button class="result-summary-btn">
-                Рассчитать рейтинг
-            </button>
-
             <div class="result-summary-table">
                 <h3 class="result-summary-title">
                 Результаты турнира
@@ -17,7 +13,7 @@
                         </p>
                         <div class="result-summary-main-rating-number">
                             <p class="newRating">{{newRating}}</p>
-                            <p class="totalChange">{{ totalChange }}</p>
+                            <p class="totalChange" :class="totalChangeColor">{{ totalChange }}</p>
                         </div>
                     </div>
                     <hr class="divider"/> 
@@ -76,6 +72,12 @@ const totalChange = computed(() => {
 const newRating = computed(() => {
     return store.newRating
 })
+
+const totalChangeColor = computed(() => {
+    if(totalChange.value >= 0) return 'plus';
+    else return 'minus';
+})
+
 </script>
 
 <style scoped lang="less">
@@ -148,7 +150,15 @@ const newRating = computed(() => {
 }
 
 .totalChange {
-    font-size: 28тзьpx;
+    font-size: 28px;
+
+    &.plus {
+        color: green;
+    }
+
+    &.minus {
+        color: red;
+    }
 }
 
 .result-summary-main-performance {
