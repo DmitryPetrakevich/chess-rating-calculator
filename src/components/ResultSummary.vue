@@ -75,7 +75,6 @@ const totalChange = computed(() => {
 
 const newRating = computed(() => {
     return store.newRating
-
 })
 </script>
 
@@ -149,7 +148,7 @@ const newRating = computed(() => {
 }
 
 .totalChange {
-    font-size: 28px;
+    font-size: 28тзьpx;
 }
 
 .result-summary-main-performance {
@@ -164,7 +163,7 @@ const newRating = computed(() => {
     }
 
     &-number {
-        font-size: 23px;
+        font-size: 36px;
         color: rgb(6, 6, 100);
     }
 }
@@ -182,7 +181,7 @@ const newRating = computed(() => {
     }
 
     &-number {
-        font-size: 23px;
+        font-size: 36px;
         color: rgb(6, 6, 100);
     }
 }
