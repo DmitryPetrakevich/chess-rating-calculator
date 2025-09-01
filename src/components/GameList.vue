@@ -53,7 +53,7 @@ let store = useChessStore();
     font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
-    background-color: #ECF0F1;
+    background-color: #EEEEEE;
     color: #2C3E50;
     border: 1px solid black;
     border-radius: 5px;
@@ -82,11 +82,21 @@ let store = useChessStore();
     &--add {
         background-color: #27AE60;
         border: 1px solid #229954;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgb(68, 191, 105);
+        }
     }
 
     &--del {
-        background-color: #E74C3C;
+        background-color: #C0392B;
         border: 1px solid #C0392B;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgb(216, 56, 56);
+        }
     }
 }
 </style>

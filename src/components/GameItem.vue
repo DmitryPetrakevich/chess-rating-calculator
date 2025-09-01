@@ -59,8 +59,9 @@ const colorChange = computed(() => {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
-    border: 1px solid #6a8698;
+    padding: 5px;
+    border: 1px solid #707070;
+    background-color: rgb(243, 243, 243);
     border-radius: 5px;
 }
 
@@ -79,15 +80,15 @@ const colorChange = computed(() => {
     flex-shrink: 0;
 
     &.win {
-        background-color: lightgreen;
+        background-color: #27AE60;
     }
 
     &.lose {
-        background-color: red;
+        background-color: #E74C3C;
     }
     
     &.draw {
-        background-color: yellow;
+        background-color: #FFD93D;
     }
 }
 
@@ -104,10 +105,10 @@ const colorChange = computed(() => {
     max-width: 100%;
     min-width: 100px;
     height: 30px;
+}
 
-    &-option {
-        font-size: 18px;
-    }
+.game__option {
+    font-size: 20px;
 }
 
 .game__change {

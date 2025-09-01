@@ -88,6 +88,7 @@ const totalChangeColor = computed(() => {
     justify-content: center;
     font-size: 25px;
     text-transform: uppercase;
+    color: #2C3E50;
   }
 
   &__main {
@@ -104,7 +105,7 @@ const totalChangeColor = computed(() => {
 
     &-text {
       font-size: 23px;
-      color: rgb(6, 6, 100);
+      color: #2C3E50;
     }
 
     &-number {
@@ -143,7 +144,7 @@ const totalChangeColor = computed(() => {
 
     &-text {
       font-size: 23px;
-      color: rgb(6, 6, 100);
+      color: #2C3E50;
     }
 
     &-number {
@@ -161,7 +162,7 @@ const totalChangeColor = computed(() => {
 
     &-text {
       font-size: 23px;
-      color: rgb(6, 6, 100);
+      color: #2C3E50;
     }
 
     &-number {

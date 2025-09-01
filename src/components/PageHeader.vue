@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,8 +26,7 @@
     background-color: #2C3E50;
     color: #FFFFFF;
     font-size: 24px;
-    border-bottom: 2px solid black;
-    
+    border-bottom: 3px solid rgb(255, 255, 255);  
 }
 </style>
 
