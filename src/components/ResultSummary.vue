@@ -9,7 +9,8 @@
             <p class="summary__rating-text">Новый рейтинг:</p>
             <div class="summary__rating-number">
               <p class="summary__new">{{ newRating }}</p>
-              <p class="summary__change" :class="totalChangeColor">{{ totalChange }}</p>
+              <p v-if="totalChange > 0" class="summary__change" :class="totalChangeColor">+{{ totalChange }}</p>
+              <p v-else class="summary__change" :class="totalChangeColor">{{ totalChange }}</p>
             </div>
           </div>
           <hr class="divider" />

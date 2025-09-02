@@ -1,13 +1,22 @@
 import { defineStore } from "pinia";
 
+const STORAGE_KEY = "chess-store";
+
 export const useChessStore = defineStore("chess", {
-  state: () => ({
+  state: () => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved) {
+      return JSON.parse(saved);
+    }
+    return {
     games: [],
     settings: {
       initialRating: 1000,
       kFactor: 20,
-    }
-  }),
+    },
+  };
+},
   getters: {
     gameChanges(state) {
       const resultMap = {
@@ -37,23 +46,31 @@ export const useChessStore = defineStore("chess", {
     }
   },
   actions: {
+    saveToLocalStorage() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.$state))
+    },
+
     addGame() {
       this.games.push({
         id: Date.now(),
         rating: 1000,
         result: "1",
-      })
+      });
+      this.saveToLocalStorage();
     },
     deleteGame() {
       if (this.games.length > 1) {
         this.games.pop();
+        this.saveToLocalStorage();
       }
     },
     updateInitialRating(rating) {
       this.settings.initialRating = Number(rating); 
+      this.saveToLocalStorage();
     },
     updateKFactor(factor) {
       this.settings.kFactor = Number(factor); 
+      this.saveToLocalStorage();
     }
   },
 });
