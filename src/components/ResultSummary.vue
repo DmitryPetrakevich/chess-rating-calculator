@@ -80,7 +80,7 @@ const totalChangeColor = computed(() => {
   &__table {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(33, 3, 114);
+    border: 1px solid #707070;
     border-radius: 5px;
   }
 

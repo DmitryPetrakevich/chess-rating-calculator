@@ -23,7 +23,7 @@
     width: 100%;
     height: 100px;
     z-index: 100;
-    background-color: #2C3E50;
+    background-color: #213549;
     color: #FFFFFF;
     font-size: 24px;
     border-bottom: 3px solid rgb(255, 255, 255);  

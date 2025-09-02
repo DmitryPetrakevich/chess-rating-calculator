@@ -102,15 +102,17 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
     }
 
     &__label {
+        font-size: 15px;
         padding-bottom: 10px;
-        color: #7F8C8D;
+        color: #525252;
+        text-transform: uppercase;
     }
 
     &__input {
         width: 100%;
         height: 30px;
         color: #2C3E50;
-        border: 1px solid #BDC3C7;
+        border: 1px solid #707070;
 
         &--disabled {
             background-color: #F8F9F9;

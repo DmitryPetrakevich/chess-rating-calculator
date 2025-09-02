@@ -35,7 +35,7 @@ import ResultSummary from './ResultSummary.vue';
         margin: 0 auto;
         border: 2px solid #555555;
         border-radius: 5px;
-        background-color: #f8f8f8;
+        background-color: #F9F9F9;
         box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
     }
 }

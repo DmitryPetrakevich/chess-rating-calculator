@@ -61,7 +61,7 @@ const colorChange = computed(() => {
     align-items: center;
     padding: 5px;
     border: 1px solid #707070;
-    background-color: rgb(243, 243, 243);
+    background-color: #ECF0F1;
     border-radius: 5px;
 }
 
@@ -72,6 +72,7 @@ const colorChange = computed(() => {
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 40px;
+    margin-left: 10px;
     width: 40px;
     height: 40px;
     font-size: 23px;
@@ -98,6 +99,7 @@ const colorChange = computed(() => {
     max-width: 100%;
     min-width: 100px;
     height: 30px;
+    color: #525252;
 }
 
 .game__result {
@@ -105,6 +107,7 @@ const colorChange = computed(() => {
     max-width: 100%;
     min-width: 100px;
     height: 30px;
+    color: #525252;
 }
 
 .game__option {

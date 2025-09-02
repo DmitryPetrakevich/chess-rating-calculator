@@ -53,7 +53,7 @@ let store = useChessStore();
     font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
-    background-color: #EEEEEE;
+    background-color: #BDC3C7;
     color: #2C3E50;
     border: 1px solid black;
     border-radius: 5px;

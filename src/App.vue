@@ -18,11 +18,11 @@ html, body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #dadada;
+  background-color: #ECF0F1
 }
 
 .app {
   min-height: 100vh;
-  background-color: #dadada;
+  background-color: #ECF0F1
 }
 </style>
