@@ -62,7 +62,7 @@ let performance = computed(() => {
 
 const totalChange = computed(() => store.totalChange);
 
-const newRating = computed(() => store.newRating);
+const newRating = computed(() => store.newRating >= 1000 ? store.newRating : 1000 );
 
 const totalChangeColor = computed(() => {
   if (totalChange.value >= 0) return "summary__change--plus";
