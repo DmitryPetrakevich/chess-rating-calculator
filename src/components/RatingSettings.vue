@@ -1,8 +1,8 @@
 <template>
     <div class="rating-settings">
-        <select class="rating-settings__choice">
-            <option>ФШР</option>
-            <option>FIDE</option>
+        <select v-model="federation" class="rating-settings__choice">
+            <option class="rating-settings__choice-option" value="fshr">ФШР</option>
+            <option class="rating-settings__choice-option" value="fide">FIDE</option>
         </select>
 
         <div class="rating-settings__inputs">
@@ -23,20 +23,48 @@
                     Коэффициент развития (K)
                 </label>
                 <input 
+                    v-if="federation === 'fshr'"
                     :placeholder="infoText"
                     class="rating-settings__input rating-settings__input--disabled"
                     disabled
                 />
+                <select 
+                v-model="fideKFactor"
+                class="rating-settings__select"
+                v-else
+                >
+                    <option class="rating-settings__select-option" value="10">10 (для игроков >2400)</option>
+                    <option class="rating-settings__select-option" value="20">20 (для игроков &lt;2400)</option>
+                    <option class="rating-settings__select-option" value="40">40 (для новых игроков)</option>
+                </select>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed, watch, ref } from 'vue';
 import { useChessStore } from '../stores/chessStore';
 
 let store = useChessStore()
+
+let federation = ref('fshr');
+let fideKFactor = ref("20");
+
+watch(fideKFactor, (newValue) => {
+    if(federation.value == 'fide') {
+        store.updateKFactor(Number(newValue))
+    }
+});
+
+watch(federation, (newFederation) => {
+    if(newFederation == "fide") {
+        store.updateKFactor(Number(fideKFactor.value))
+    } else if(newFederation == "fshr") {
+        updateKFactorBasedOnRating(store.settings.initialRating)
+
+    }
+})
 
 watch(() => store.settings.initialRating, (newRating) => {
     updateKFactorBasedOnRating(Number(newRating));
@@ -55,10 +83,11 @@ let infoText = computed(() => {
     if (num < 2400) return '20 (2200-2399)'
     if (num >= 2400) return '10 (>2400)'
 
-    updateKFactorBasedOnRating(num);
+    // updateKFactorBasedOnRating(num); // Избыточно???
 });
 
 function updateKFactorBasedOnRating(rating) {
+    rating = Number(rating);
     let kFactor;
     if(rating === 0) kFactor = 20;
     else if (rating < 1200) kFactor = 60;
@@ -87,6 +116,10 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
         padding: 8px 12px;
         margin-bottom: 20px;
         font-size: 18px;
+
+        &-option {
+            font-size: 15px;
+        }
     }
 
     &__inputs {
@@ -118,6 +151,18 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
             background-color: #F8F9F9;
             color: #95A5A6;
         }
+    }
+
+    &__select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 12px;
+
+        &-option {
+            font-size: 15px;
+        }
+        
+        
     }
 }
 </style>
