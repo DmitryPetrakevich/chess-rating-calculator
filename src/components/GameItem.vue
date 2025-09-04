@@ -59,10 +59,15 @@ const colorChange = computed(() => {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px;
+    justify-content: space-between;
+    padding: 5px 20px;
     border: 1px solid #707070;
     background-color: #ECF0F1;
     border-radius: 5px;
+
+    @media(max-width: 500px) {
+        padding: 10px;
+    }
 }
 
 .game__number {
@@ -79,6 +84,17 @@ const colorChange = computed(() => {
     border-radius: 50%;
     background-color: lightgreen;
     flex-shrink: 0;
+
+    @media(max-width: 500px) {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    @media(max-width: 500px) {
+        margin-right: 20px;
+        margin-left: 0;
+    }
 
     &.win {
         background-color: #27AE60;
@@ -97,17 +113,30 @@ const colorChange = computed(() => {
     margin-right: 30px;
     width: 100%;
     max-width: 100%;
-    min-width: 100px;
+    min-width: 50px;
     height: 30px;
+    font-size: 16px;
     color: #525252;
+
+    @media(max-width: 500px) {
+        margin-right: 10px;
+    }
+
+    @media(max-width: 400px) {
+        font-size: 12px;
+    }
 }
 
 .game__result {
     width: 100%;
     max-width: 100%;
-    min-width: 100px;
+    min-width: 50px;
     height: 30px;
     color: #525252;
+
+    @media(max-width: 400px) {
+        font-size: 12px;
+    }
 }
 
 .game__option {
@@ -116,9 +145,16 @@ const colorChange = computed(() => {
 
 .game__change {
     font-size: 23px;
-    margin-right: 60px;
-    margin-left: 60px;
     font-weight: 800;
+    margin: 0 30px;
+
+    @media(max-width: 500px) {
+        font-size: 20px;
+        margin: 0 10px;
+    }
+    @media(max-width: 400px) {
+        font-size: 18px;
+    }
 
     &.plus {
         color: green;

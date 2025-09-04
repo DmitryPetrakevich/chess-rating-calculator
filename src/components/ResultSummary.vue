@@ -90,6 +90,14 @@ const totalChangeColor = computed(() => {
     font-size: 25px;
     text-transform: uppercase;
     color: #2C3E50;
+
+    @media(max-width: 700px) {
+      font-size: 20px;
+    }
+
+    @media(max-width: 500px) {
+      font-size: 16px;
+    }
   }
 
   &__main {
@@ -107,7 +115,15 @@ const totalChangeColor = computed(() => {
     &-text {
       font-size: 23px;
       color: #2C3E50;
+
+      @media(max-width: 700px) {
+        font-size: 20px;
     }
+
+      @media(max-width: 500px) {
+        font-size: 16px;
+    }
+  }
 
     &-number {
       display: flex;
@@ -121,12 +137,28 @@ const totalChangeColor = computed(() => {
     font-size: 36px;
     margin: 0;
     padding: 0;
+
+    @media(max-width: 700px) {
+      font-size: 25px;
+    }
+
+    @media(max-width: 500px) {
+      font-size: 20px;
+    }
   }
 
   &__change {
     font-size: 28px;
     margin: 0;
     padding: 0;
+
+    @media(max-width: 700px) {
+      font-size: 20px;
+    }
+
+    @media(max-width: 500px) {
+      font-size: 15px;
+    }
 
     &--plus {
       color: green;
@@ -146,11 +178,27 @@ const totalChangeColor = computed(() => {
     &-text {
       font-size: 23px;
       color: #2C3E50;
+
+      @media(max-width: 700px) {
+        font-size: 20px;
+    }
+
+      @media(max-width: 500px) {
+        font-size: 16px;
+    }
     }
 
     &-number {
       font-size: 36px;
       color: rgb(6, 6, 100);
+
+      @media(max-width: 700px) {
+        font-size: 25px;
+    }
+
+    @media(max-width: 500px) {
+      font-size: 20px;
+    }
     }
   }
 
@@ -159,16 +207,32 @@ const totalChangeColor = computed(() => {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 
     &-text {
       font-size: 23px;
       color: #2C3E50;
+
+      @media(max-width: 700px) {
+        font-size: 20px;
+    }
+
+      @media(max-width: 500px) {
+        font-size: 16px;
+    }
     }
 
     &-number {
       font-size: 36px;
       color: rgb(6, 6, 100);
+
+      @media(max-width: 700px) {
+        font-size: 25px;
+    }
+
+      @media(max-width: 500px) {
+        font-size: 20px;
+      }
     }
   }
 }

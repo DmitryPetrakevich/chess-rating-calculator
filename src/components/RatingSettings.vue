@@ -117,6 +117,10 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
         margin-bottom: 20px;
         font-size: 18px;
 
+        @media(max-width: 700px) {
+            font-size: 15px;
+    }
+
         &-option {
             font-size: 15px;
         }
@@ -124,7 +128,14 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
 
     &__inputs {
         display: flex;
+        flex-direction: row;
         gap: 50px;
+
+        @media(max-width: 500px) {
+            flex-direction: column;
+            gap: 20px;
+            
+        }
     }
 
     &__start,
@@ -139,6 +150,11 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
         padding-bottom: 10px;
         color: #525252;
         text-transform: uppercase;
+        white-space: nowrap;
+
+        @media(max-width: 700px) {
+            font-size: 12px;
+        }
     }
 
     &__input {
@@ -146,6 +162,7 @@ updateKFactorBasedOnRating(Number(store.settings.initialRating));
         height: 30px;
         color: #2C3E50;
         border: 1px solid #707070;
+        font-size: 16px;
 
         &--disabled {
             background-color: #F8F9F9;

@@ -57,6 +57,18 @@ let store = useChessStore();
     color: #2C3E50;
     border: 1px solid black;
     border-radius: 5px;
+
+    @media(max-width: 700px) {
+        font-size: 13px;
+    }
+
+    @media(max-width: 500px) {
+        font-size: 10px;
+    }
+
+    @media(max-width: 400px) {
+        font-size: 8px;
+    }
 }
 
 .game-list__games {
@@ -78,6 +90,17 @@ let store = useChessStore();
     color: white;
     border: none;
     border-radius: 4px;
+    white-space: nowrap;
+
+    @media(max-width: 500px) {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+
+    @media(max-width: 400px) {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
 
     &--add {
         background-color: #27AE60;

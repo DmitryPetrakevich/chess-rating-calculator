@@ -27,6 +27,18 @@
     color: #FFFFFF;
     font-size: 24px;
     border-bottom: 3px solid rgb(255, 255, 255);  
+
+    @media(max-width: 768px) {
+        font-size: 20px;
+    }
+
+    @media(max-width: 500px) {
+        font-size: 16px;
+    }
+
+    @media(max-width: 400px) {
+        font-size: 12px;
+    }
 }
 </style>
 
